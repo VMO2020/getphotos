@@ -297,7 +297,7 @@ export const Images = ({ auth, setAuth }) => {
 
 					{search && (
 						<span className="btn-search-delete" onClick={handleSearchReset}>
-							<BsFillTrashFill color="red" size={24} />
+							<BsFillTrashFill size={24} />
 						</span>
 					)}
 				</form>
