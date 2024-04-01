@@ -317,7 +317,7 @@ export const Images = ({ auth, setAuth }) => {
 						</span>
 					)}
 				</div>
-				<div className="search-result" id="search-result">
+				<div className="search-result">
 					{results?.map((result, i) => (
 						<div key={`${result.created_at}-${i}`} className="image-card">
 							<a href={result.links.html} target="_blank" rel="noreferrer">
@@ -334,7 +334,7 @@ export const Images = ({ auth, setAuth }) => {
 						</button>
 					)}
 				</div>
-				<div className="search-result" id="search-result">
+				<div className="search-result">
 					{results2?.map((result) => (
 						<div key={result.id} className="image-card">
 							<a href={result.url} target="_blank" rel="noreferrer">
@@ -351,7 +351,7 @@ export const Images = ({ auth, setAuth }) => {
 						</button>
 					)}
 				</div>
-				<div className="search-result" id="search-result">
+				<div className="search-result">
 					{results3?.map((result) => (
 						<div key={result.id} className="image-card">
 							<a href={result.webformatURL} target="_blank" rel="noreferrer">
