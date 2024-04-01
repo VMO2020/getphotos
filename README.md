@@ -79,7 +79,7 @@ Create: `.env.local`
 1. Go to `https://app.netlify.com/` All sites and login with GitHub
 2. Add new site => Import an existing project
 3. Connect to Git provider: GitHub
-4. Name: `getphotos`
+4. Name: `getfreephotos`
 5. Owner: `VMOG`
 6. Branch to deploy: `main`
 7. Base directory: `/`
@@ -88,4 +88,4 @@ Create: `.env.local`
 10. Show Advance: Environment variable: New variable `.env`
 11. Environment Add: `CI`=`false`
 12. Deploy site
-13. Site settings: Change url name: `https://getphotos.netlify.app/`
+13. Site settings: Change url name: `https://getfreephotos.netlify.app/`
