@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap');
+
+/* Variables */
+:root {
+	/* Colors */
+	--primary-color: hsl(193, 83%, 23%); /* Titles and background */
+
+	--accent-light-color: rgb(247, 239, 138);
+	--accent-color: hsl(46, 65%, 52%); /* Gold */
+	--accent-dark-color: hsl(41, 57%, 41%);
+
+	--secondary-color: hsl(94, 78%, 18%); /* Green */
+
+	--dark-color: hsl(0, 0%, 8%);
+	--med-dark-color: hsl(0, 0%, 30%);
+	--med-color: hsl(0, 0%, 50%);
+	--med-light-color: hsl(0, 0%, 70%);
+	--light-color: hsl(0, 0%, 97%);
+
+	--alert-color: hsl(0, 100%, 50%);
+	--html-color: hsl(215, 15%, 22%);
+
+	/* Size */
+	--size-img-1: clamp(10rem, 24vw, 16rem);
+
+	--size-1: clamp(2rem, 6vw, 4rem);
+	--size-2: clamp(1.5rem, 5vw, 3rem);
+	--size-3: clamp(1.2rem, 4vw, 2.5rem);
+	--size-4: clamp(1.1rem, 3.5vw, 2rem);
+	--size-5: clamp(1rem, 3vw, 1.8rem);
+	--size-6: clamp(0.9rem, 2.5vw, 1.5rem);
+	--size-7: clamp(0.8rem, 2.2vw, 1.2rem);
+	--size-8: clamp(0.7rem, 2.1vw, 1.1rem);
+
+	/* Icons */
+	--sm-icon: var(--size-3);
+	--md-icon: var(--size-1);
+	--lg-icon: clamp(3rem, 5.2vw, 5rem);
+
+	/* Shadows */
+	--sm-shadow: 3px 3px 5px var(--med-color);
+	--lg-shadow: 5px 5px 8px var(--med-color);
+
+	/* Light Mode */
+	--front-color: var(--dark-color);
+	--back-color: var(--light-color);
+
+	/* Window Size */
+	--min-width: 320px;
+	--max-width: 1600px;
+}
+
+/* General */
+html {
+	background-color: var(--html-color);
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	font-size: 1rem; /* 16px */
+	font-weight: 400;
+
+	text-align: center;
+	line-height: 1.6;
+	letter-spacing: 0.05em;
+	/* letter-spacing: 0.01em; */
+
+	min-width: var(--min-width);
+	max-width: var(--max-width);
+	min-height: 100svh;
+
+	margin: 0 auto;
+	padding: 0;
+	scroll-behavior: smooth;
+
+	/* Light MODE */
+	color: var(--dark-color);
+	background-color: var(--light-color);
+}
+
+/* Dark MODE */
+body.dark {
+	--front-color: var(--light-color);
+	--back-color: var(--dark-color);
+	color: var(--light-color);
+	background-color: var(--dark-color);
+}
+
+/* Fonts */
+h1 {
+	font-size: var(--size-1);
+	line-height: 1em;
+}
+
+h2 {
+	font-size: var(--size-2);
+	line-height: 1.1em;
+}
+
+h3 {
+	font-size: var(--size-3);
+	line-height: 1.2em;
+}
+
+h4 {
+	font-size: var(--size-4);
+	line-height: 1.4em;
+}
+
+h5 {
+	font-size: var(--size-5);
+}
+
+h6 {
+	font-size: var(--size-6);
+}
+
+p {
+	font-size: var(--size-7);
+}
+
+/* Elements */
+.loading {
+	font-size: var(--size-1);
+	color: var(--accent-color);
+	text-align: center;
+	margin-top: 4rem;
+	min-height: 80vh;
+}
+
+.btn {
+	position: relative;
+	font-size: var(--size-6);
+	line-height: calc(1vw + 1.2rem);
+	display: inline-block;
+	vertical-align: middle;
+	padding: 0.2em 1em;
+	text-decoration: none;
+	text-transform: uppercase;
+	color: var(--back-color);
+	overflow: hidden;
+	cursor: pointer;
+	transition: all 1s ease;
+}
+
+/* Specials */
+.text-gradient {
+	background: linear-gradient(
+		-120deg,
+		var(--accent-dark-color) 0%,
+		var(--accent-color) 50%,
+		var(--accent-color) 50%,
+		var(--accent-light-color) 100%
+	);
+	text-shadow: none;
+	-webkit-text-fill-color: transparent;
+	-webkit-background-clip: text;
+	background-clip: text;
+}
+
+/* hsl(193, 83%, 23%) */
+.gradient-color {
+	background-image: linear-gradient(
+		45deg,
+		hsl(4deg 100% 58%) 0%,
+		hsl(27deg 100% 58%) 14%,
+		hsl(50deg 100% 59%) 29%,
+		hsl(72deg 100% 59%) 43%,
+		hsl(64deg 100% 59%) 57%,
+		hsl(26deg 100% 59%) 71%,
+		hsl(347deg 100% 59%) 86%,
+		hsl(309deg 100% 59%) 100%
+	);
+}
