@@ -192,7 +192,7 @@ export const Images = ({ auth, setAuth }) => {
 	return (
 		<div className="images-search-container">
 			<main>
-				<div className="images-search-title gradient-color">
+				<div className="images-search-title">
 					<h1>Image Search Engine</h1>
 					<h3>(Unsplash, Pexels & Pixabay)</h3>
 				</div>

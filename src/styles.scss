@@ -51,6 +51,12 @@
 }
 
 /* General */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
 html {
 	background-color: var(--html-color);
 }
@@ -143,6 +149,30 @@ p {
 	transition: all 1s ease;
 }
 
+a {
+	display: inline;
+	text-decoration: none;
+	color: inherit;
+	cursor: pointer;
+}
+
+button {
+	cursor: pointer;
+}
+
+textarea,
+input,
+div,
+button {
+	/* outline: none; */
+	outline-color: transparent;
+}
+
+img {
+	vertical-align: top;
+	width: 100%;
+}
+
 /* Specials */
 .text-gradient {
 	background: linear-gradient(
@@ -162,13 +192,13 @@ p {
 .gradient-color {
 	background-image: linear-gradient(
 		45deg,
-		hsl(4deg 100% 58%) 0%,
-		hsl(27deg 100% 58%) 14%,
-		hsl(50deg 100% 59%) 29%,
-		hsl(72deg 100% 59%) 43%,
-		hsl(64deg 100% 59%) 57%,
-		hsl(26deg 100% 59%) 71%,
-		hsl(347deg 100% 59%) 86%,
-		hsl(309deg 100% 59%) 100%
+		hsl(0deg 8% 97%) 0%,
+		hsl(0deg 7% 70%) 14%,
+		hsl(0deg 8% 42%) 29%,
+		hsl(0deg 7% 14%) 43%,
+		hsl(0deg 7% 14%) 57%,
+		hsl(0deg 8% 42%) 71%,
+		hsl(0deg 7% 70%) 86%,
+		hsl(0deg 8% 97%) 100%
 	);
 }

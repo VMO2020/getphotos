@@ -4,19 +4,21 @@
 	overflow: hidden;
 
 	.images-search-title {
-		color: var(--primary-color);
+		color: var(--dark-color);
 		padding: 1em;
 		margin-bottom: 1em;
 		font-weight: 700;
+		// border: 2px solid var(--dark-color);
+		box-shadow: var(--sm-shadow);
 
 		h1 {
 			font-size: var(--size-2);
-			margin-top: 0;
-			margin-bottom: 0.1em;
+			margin: 0;
 		}
 
 		h3 {
 			font-size: var(--size-4);
+			margin: 0;
 		}
 	}
 
