@@ -1,11 +1,11 @@
 /* eslint-disable react/jsx-key */
 /* eslint-disable react/prop-types */
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 // Services
-import { searchImages } from './Unsplash.js';
-import { fetchData } from './Pexels.js';
-import { PixabayImages } from './Pixabay.js';
+import { searchImages } from '../../services/Unsplash.js';
+import { fetchData } from '../../services/Pexels.js';
+import { PixabayImages } from '../../services/Pixabay.js';
 
 // Icons
 import { BsFillTrashFill } from 'react-icons/bs';
@@ -32,6 +32,11 @@ export const Images = ({ auth, setAuth }) => {
 	const [perPage, setPerPage] = useState(12);
 	const [color, setColor] = useState('all');
 	const [orientation, setOrientation] = useState('all');
+
+	// useRef
+	const search1Ref = useRef(null);
+	const search2Ref = useRef(null);
+	const search3Ref = useRef(null);
 
 	// SEARCH FILTERS
 	const handleInputChange = (event) => {
@@ -85,7 +90,7 @@ export const Images = ({ auth, setAuth }) => {
 	};
 
 	// SEARCH: Unsplash
-	const handleSearch = (e) => {
+	const handleSearchUnsplash = (e) => {
 		e.preventDefault();
 		setImages([]);
 		page = 1;
@@ -98,6 +103,9 @@ export const Images = ({ auth, setAuth }) => {
 			images,
 			setImages,
 		});
+		if (search1Ref.current) {
+			search1Ref.current.scrollIntoView({ behavior: 'smooth' });
+		}
 	};
 
 	const handleShowMore = () => {
@@ -126,6 +134,9 @@ export const Images = ({ auth, setAuth }) => {
 			images2,
 			setImages2,
 		});
+		if (search2Ref.current) {
+			search2Ref.current.scrollIntoView({ behavior: 'smooth' });
+		}
 	};
 
 	const handleShowMore2 = () => {
@@ -154,6 +165,9 @@ export const Images = ({ auth, setAuth }) => {
 			images3,
 			setImages3,
 		});
+		if (search3Ref.current) {
+			search3Ref.current.scrollIntoView({ behavior: 'smooth' });
+		}
 	};
 
 	const handleShowMore3 = () => {
@@ -191,12 +205,13 @@ export const Images = ({ auth, setAuth }) => {
 
 	return (
 		<div className="images-search-container">
-			<main>
+			<header>
 				<div className="images-search-title">
 					<h1>Image Search Engine</h1>
 					<h3>(Unsplash, Pexels & Pixabay)</h3>
 				</div>
-
+			</header>
+			<main>
 				<div id="search-form-line-2">
 					<span>
 						Filters
@@ -277,7 +292,7 @@ export const Images = ({ auth, setAuth }) => {
 						onChange={handleInputChange}
 					/>
 
-					<button className="btn-image-search" onClick={handleSearch}>
+					<button className="btn-image-search" onClick={handleSearchUnsplash}>
 						<FaUnsplash /> Search
 					</button>
 
@@ -301,6 +316,7 @@ export const Images = ({ auth, setAuth }) => {
 						</span>
 					)}
 				</form>
+
 				<div className="line-3-element">
 					<label>WORD Filter: </label>
 					<input
@@ -317,57 +333,72 @@ export const Images = ({ auth, setAuth }) => {
 						</span>
 					)}
 				</div>
-				<div className="search-result">
-					{results?.map((result, i) => (
-						<div key={`${result.created_at}-${i}`} className="image-card">
-							<a href={result.links.html} target="_blank" rel="noreferrer">
-								<img src={result.urls.regular} />
-							</a>
-							<p>{result.alt_description}</p>
-						</div>
-					))}
-				</div>
-				<div className="show-more-container">
-					{results?.length > 0 && (
-						<button className="btn-show-more" onClick={handleShowMore}>
-							Show more Unsplash
-						</button>
-					)}
-				</div>
-				<div className="search-result">
-					{results2?.map((result) => (
-						<div key={result.id} className="image-card">
-							<a href={result.url} target="_blank" rel="noreferrer">
-								<img src={result.src.medium} />
-							</a>
-							<p>{result.alt}</p>
-						</div>
-					))}
-				</div>
-				<div className="show-more-container">
-					{results2?.length > 0 && (
-						<button className="btn-show-more-pexels" onClick={handleShowMore2}>
-							Show more Pexels
-						</button>
-					)}
-				</div>
-				<div className="search-result">
-					{results3?.map((result) => (
-						<div key={result.id} className="image-card">
-							<a href={result.webformatURL} target="_blank" rel="noreferrer">
-								<img src={result.largeImageURL} />
-							</a>
-							<p>{result.tags}</p>
-						</div>
-					))}
-				</div>
-				<div className="show-more-container">
-					{results3?.length > 0 && (
-						<button className="btn-show-more-pixabay" onClick={handleShowMore3}>
-							Show more Pixabay
-						</button>
-					)}
-				</div>
+
+				<section id="search1" ref={search1Ref}>
+					<div className="search-result">
+						{results?.map((result, i) => (
+							<div key={`${result.created_at}-${i}`} className="image-card">
+								<a href={result.links.html} target="_blank" rel="noreferrer">
+									<img src={result.urls.regular} />
+								</a>
+								<p>{result.alt_description}</p>
+							</div>
+						))}
+					</div>
+					<div className="show-more-container">
+						{results?.length > 0 && (
+							<button className="btn-show-more" onClick={handleShowMore}>
+								Show more Unsplash
+							</button>
+						)}
+					</div>
+				</section>
+
+				<section id="search2" ref={search2Ref}>
+					<div className="search-result">
+						{results2?.map((result) => (
+							<div key={result.id} className="image-card">
+								<a href={result.url} target="_blank" rel="noreferrer">
+									<img src={result.src.medium} />
+								</a>
+								<p>{result.alt}</p>
+							</div>
+						))}
+					</div>
+					<div className="show-more-container">
+						{results2?.length > 0 && (
+							<button
+								className="btn-show-more-pexels"
+								onClick={handleShowMore2}
+							>
+								Show more Pexels
+							</button>
+						)}
+					</div>
+				</section>
+
+				<section id="search3" ref={search3Ref}>
+					<div className="search-result">
+						{results3?.map((result) => (
+							<div key={result.id} className="image-card">
+								<a href={result.webformatURL} target="_blank" rel="noreferrer">
+									<img src={result.largeImageURL} />
+								</a>
+								<p>{result.tags}</p>
+							</div>
+						))}
+					</div>
+					<div className="show-more-container">
+						{results3?.length > 0 && (
+							<button
+								className="btn-show-more-pixabay"
+								onClick={handleShowMore3}
+							>
+								Show more Pixabay
+							</button>
+						)}
+					</div>
+				</section>
 				<div className="show-more-container">
 					{(results2?.length > 0 ||
 						results?.length > 0 ||
